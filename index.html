@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心字彙 Advanced Unit 7：滿分攻略大作戰</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f3f4f6; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const quizData = [
+            // Part 1
+            {
+                id: 1,
+                type: "fill",
+                question: "We'll use the data we've collected to ______ a profile of the company's customers. (c_______)",
+                answer: "construct",
+                translation: "我們將使用收集到的數據來建立公司客戶的檔案。",
+                explanation: "construct (v.) 建立、建造。常見搭配：construct a building (建造大樓)、construct a theory (建構理論)。",
+                part: 1
+            },
+            {
+                id: 2,
+                type: "fill",
+                question: "A lack of proper planning is affecting the company's ______. (e_______)",
+                answer: "efficiency",
+                translation: "缺乏適當的計劃正在影響公司的效率。",
+                explanation: "efficiency (n.) 效率。常見搭配：improve efficiency (提高效率)、energy efficiency (能源效率)。",
+                part: 1
+            },
+            {
+                id: 3,
+                type: "fill",
+                question: "The bicycle tire was no longer ______ after it was run over by a car. (c_______)",
+                answer: "circular",
+                translation: "自行車輪胎被車碾過後不再是圓形的了。",
+                explanation: "circular (adj.) 圓形的。常見搭配：circular motion (圓周運動)、circular reasoning (循環論證)。",
+                part: 1
+            },
+            {
+                id: 4,
+                type: "fill",
+                question: "Judy was so tired that she was ______ able to keep her eyes open. (b_______)",
+                answer: "barely",
+                translation: "Judy 太累了，幾乎睜不開眼睛。",
+                explanation: "barely (adv.) 幾乎不、勉強。常見搭配：barely able to (幾乎無法)、barely visible (隱約可見)。",
+                part: 1
+            },
+            {
+                id: 5,
+                type: "fill",
+                question: "They spread lies about her in an ______ to damage her reputation. (a_______)",
+                answer: "attempt",
+                translation: "他們散佈關於她的謊言，試圖損害她的名譽。",
+                explanation: "attempt (n.) 企圖、嘗試。常見搭配：in an attempt to (試圖/企圖...)、make an attempt (做出嘗試)。",
+                part: 1
+            },
+            {
+                id: 6,
+                type: "fill",
+                question: "The thief replaced the ______ painting with a copy, hoping no one would realize. (o_______)",
+                answer: "original",
+                translation: "小偷用複製品替換了原作，希望沒人會發現。",
+                explanation: "original (adj.) 原本的、最初的。常見搭配：original idea (原創想法)、original plan (原訂計畫)。",
+                part: 1
+            },
+            {
+                id: 7,
+                type: "fill",
+                question: "On the business trip, we can put all transport ______ on the company credit card. (e_______)",
+                answer: "expenses",
+                translation: "出差期間，我們可以將所有交通費用記在公司信用卡上。",
+                explanation: "expenses (n.) 費用、開支。常見搭配：travel expenses (差旅費)、cover the expenses (支付費用)。",
+                part: 1
+            },
+            {
+                id: 8,
+                type: "fill",
+                question: "Matt knows he needs to wake up early, but he doesn't have the ______ to do it. (d_______)",
+                answer: "desire",
+                translation: "Matt 知道他需要早起，但他沒有那個意願去做。",
+                explanation: "desire (n.) 慾望、意願。常見搭配：desire to do sth (做某事的意願)、burning desire (強烈的慾望)。",
+                part: 1
+            },
+            {
+                id: 9,
+                type: "fill",
+                question: "Professional athletes need to work out ______ to stay in peak condition. (c_______)",
+                answer: "continuously",
+                translation: "職業運動員需要持續鍛煉以保持最佳狀態。",
+                explanation: "continuously (adv.) 持續地。常見搭配：work continuously (持續工作)、rain continuously (雨下個不停)。",
+                part: 1
+            },
+            {
+                id: 10,
+                type: "fill",
+                question: "Many different languages are spoken in New York City because of all the ______ communities present. (i_______)",
+                answer: "immigrant",
+                translation: "紐約市講許多不同的語言，因為那裡有許多移民社區。",
+                explanation: "immigrant (n./adj.) 移民(的)。常見搭配：immigrant community (移民社群)、illegal immigrant (非法移民)。",
+                part: 1
+            },
+            // Part 2
+            {
+                id: 11,
+                type: "mc",
+                question: "Tanya is so smart. The ______ with which she learns new languages is amazing!",
+                options: ["stick", "ease", "fortune", "origin"],
+                answer: "ease",
+                translation: "Tanya 很聰明。她學習新語言的輕鬆程度令人驚訝！",
+                explanation: "ease (n.) 容易、舒適。常見搭配：with ease (輕易地)、at ease (自在的)。",
+                part: 2
+            },
+            {
+                id: 12,
+                type: "mc",
+                question: "Art schools are special because they focus on bringing out their students' ______ sides.",
+                options: ["unfortunate", "resistant", "efficient", "creative"],
+                answer: "creative",
+                translation: "藝術學校很特別，因為它們專注於激發學生的創造力。",
+                explanation: "creative (adj.) 有創造力的。常見搭配：creative sides (創造性的一面)、creative thinking (創意思考)。",
+                part: 2
+            },
+            {
+                id: 13,
+                type: "mc",
+                question: "The government couldn't pass the new law because of strong ______ from the public.",
+                options: ["resistance", "expense", "migration", "originality"],
+                answer: "resistance",
+                translation: "由於公眾的強烈反對，政府無法通過新法律。",
+                explanation: "resistance (n.) 抵抗、反對。常見搭配：strong resistance (強烈反對)、resistance to change (對改變的抵抗)。",
+                part: 2
+            },
+            {
+                id: 14,
+                type: "mc",
+                question: "Some books in this library are so old that tape has been used to ______ them back together.",
+                options: ["manufacture", "resist", "continue", "stick"],
+                answer: "stick",
+                translation: "這家圖書館的一些書太舊了，已經用膠帶把它們黏在一起。",
+                explanation: "stick (v.) 黏貼。常見搭配：stick together (黏在一起/團結)、stick to the plan (堅持計畫)。",
+                part: 2
+            },
+            {
+                id: 15,
+                type: "mc",
+                question: "I wanted to go on the trip, but ______, I got sick just before we were supposed to go.",
+                options: ["continually", "originally", "unfortunately", "frequently"],
+                answer: "unfortunately",
+                translation: "我想去旅行，但不幸的是，就在我們出發前我生病了。",
+                explanation: "unfortunately (adv.) 不幸地。常見搭配：unfortunately for us (對我們來說不幸的是)。此處 'but' 轉折語氣暗示負面結果。",
+                part: 2
+            },
+            {
+                id: 16,
+                type: "mc",
+                question: "The boy dropped all his ______ and they rolled away in different directions.",
+                options: ["marbles", "stages", "circles", "fortunes"],
+                answer: "marbles",
+                translation: "那個男孩掉落了他所有的彈珠，它們滾向不同的方向。",
+                explanation: "marbles (n.) 彈珠。常見搭配：rolled away (滾走)、lose one's marbles (失去理智/發瘋)。",
+                part: 2
+            },
+            {
+                id: 17,
+                type: "mc",
+                question: "Our company ______ wooden furniture like tables and cupboards, and sells it to stores.",
+                options: ["entertains", "directs", "originates", "manufactures"],
+                answer: "manufactures",
+                translation: "我們公司製造木製家具，如桌子和櫥櫃，並將其出售給商店。",
+                explanation: "manufactures (v.) 製造。常見搭配：manufacture furniture (製造傢俱)、manufacture goods (製造商品)。",
+                part: 2
+            },
+            {
+                id: 18,
+                type: "mc",
+                question: "When results fail to meet expectations, it's easy for us to feel ______.",
+                options: ["continuous", "frustrated", "dramatic", "manufactured"],
+                answer: "frustrated",
+                translation: "當結果未達預期時，我們很容易感到挫折。",
+                explanation: "frustrated (adj.) 感到挫折的。常見搭配：feel frustrated (感到挫折)、fail to meet expectations (未能達到預期)。",
+                part: 2
+            },
+            {
+                id: 19,
+                type: "mc",
+                question: "Following news of overcrowded prisons, the new president promised to ______ the system.",
+                options: ["circulate", "reform", "emigrate", "invent"],
+                answer: "reform",
+                translation: "繼監獄過度擁擠的消息傳出後，新總統承諾改革該系統。",
+                explanation: "reform (v.) 改革。常見搭配：reform the system (改革體制)、prison reform (監獄改革)。",
+                part: 2
+            },
+            {
+                id: 20,
+                type: "mc",
+                question: "Once he started his business, Robert showed that he ______ success through his hard work.",
+                options: ["silenced", "immigrated", "desired", "expended"],
+                answer: "desired",
+                translation: "一旦開始創業，Robert 就透過他的努力工作表明他渴望成功。",
+                explanation: "desired (v.) 渴望、想要。常見搭配：desire success (渴望成功)、desire change (渴望改變)。",
+                part: 2
+            }
+        ];
+
+        function App() {
+            const [userAnswers, setUserAnswers] = React.useState({});
+            const [checkedStatus, setCheckedStatus] = React.useState({}); // Stores checked status for each question
+            const [activeTab, setActiveTab] = React.useState(1); // 1 for Part 1, 2 for Part 2
+
+            const handleInputChange = (id, value) => {
+                // Prevent changes if already checked
+                if (checkedStatus[id]) return;
+                
+                setUserAnswers(prev => ({
+                    ...prev,
+                    [id]: value
+                }));
+            };
+
+            const handleCheckAnswer = (id) => {
+                if (!userAnswers[id]) {
+                    alert("請先作答再檢查答案！");
+                    return;
+                }
+                setCheckedStatus(prev => ({
+                    ...prev,
+                    [id]: true
+                }));
+            };
+
+            const isCorrect = (q) => {
+                const userAnswer = userAnswers[q.id] || "";
+                if (q.type === 'fill') {
+                    return userAnswer.trim().toLowerCase() === q.answer.toLowerCase();
+                } else {
+                    return userAnswer === q.answer;
+                }
+            };
+
+            const resetQuiz = () => {
+                if (confirm("確定要重置所有題目嗎？")) {
+                    setUserAnswers({});
+                    setCheckedStatus({});
+                }
+            };
+
+            const part1Questions = quizData.filter(q => q.part === 1);
+            const part2Questions = quizData.filter(q => q.part === 2);
+
+            return (
+                <div className="max-w-3xl mx-auto p-4 md:p-8 min-h-screen">
+                    <header className="text-center mb-8 bg-white p-6 rounded-xl shadow-md border-b-4 border-blue-500">
+                        <h1 className="text-3xl font-bold text-gray-800 mb-2">核心字彙 Advanced Unit 7：滿分攻略大作戰 🚀</h1>
+                        <p className="text-gray-600">填寫答案後點擊「檢查」查看詳細解析，將錯誤轉化為進步的養分！</p>
+                        <div className="mt-4 text-sm text-gray-500">
+                            已完成: {Object.keys(checkedStatus).length} / {quizData.length} 題
+                        </div>
+                    </header>
+
+                    <div className="flex justify-center mb-6 space-x-4">
+                        <button 
+                            onClick={() => setActiveTab(1)}
+                            className={`px-6 py-2 rounded-full font-semibold transition-all ${activeTab === 1 ? 'bg-blue-600 text-white shadow-lg transform scale-105' : 'bg-white text-gray-600 hover:bg-gray-100'}`}
+                        >
+                            Part 1: 填空題
+                        </button>
+                        <button 
+                            onClick={() => setActiveTab(2)}
+                            className={`px-6 py-2 rounded-full font-semibold transition-all ${activeTab === 2 ? 'bg-blue-600 text-white shadow-lg transform scale-105' : 'bg-white text-gray-600 hover:bg-gray-100'}`}
+                        >
+                            Part 2: 選擇題
+                        </button>
+                    </div>
+
+                    <div className="space-y-6">
+                        {(activeTab === 1 ? part1Questions : part2Questions).map((q) => {
+                            const isChecked = checkedStatus[q.id];
+                            const correct = isChecked ? isCorrect(q) : false;
+
+                            return (
+                                <div key={q.id} className={`bg-white p-6 rounded-xl shadow-sm border transition-all duration-300 ${isChecked ? (correct ? 'border-green-200 bg-green-50/30' : 'border-red-200 bg-red-50/30') : 'border-gray-100 hover:shadow-md'}`}>
+                                    <div className="flex items-start">
+                                        <span className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full mr-4 text-sm font-bold ${isChecked ? (correct ? 'bg-green-500 text-white' : 'bg-red-500 text-white') : 'bg-blue-100 text-blue-600'}`}>
+                                            {q.id}
+                                        </span>
+                                        <div className="flex-grow">
+                                            {/* Question Text */}
+                                            <h3 className="text-lg text-gray-800 mb-4 leading-relaxed font-medium">
+                                                {q.question}
+                                            </h3>
+
+                                            {/* Input Area */}
+                                            <div className="mb-4">
+                                                {q.type === 'fill' ? (
+                                                    <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+                                                        <input
+                                                            type="text"
+                                                            className={`flex-grow sm:flex-grow-0 sm:w-64 px-4 py-2 border-2 rounded-lg outline-none transition-colors font-medium ${
+                                                                isChecked 
+                                                                    ? (correct ? 'border-green-500 text-green-700 bg-white' : 'border-red-500 text-red-700 bg-white')
+                                                                    : 'border-gray-300 focus:border-blue-500 focus:bg-white bg-gray-50'
+                                                            }`}
+                                                            placeholder="輸入單字"
+                                                            value={userAnswers[q.id] || ""}
+                                                            onChange={(e) => handleInputChange(q.id, e.target.value)}
+                                                            disabled={isChecked}
+                                                            onKeyDown={(e) => {
+                                                                if (e.key === 'Enter' && !isChecked) {
+                                                                    handleCheckAnswer(q.id);
+                                                                }
+                                                            }}
+                                                        />
+                                                        {!isChecked && (
+                                                            <button 
+                                                                onClick={() => handleCheckAnswer(q.id)}
+                                                                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors shadow-sm"
+                                                            >
+                                                                檢查
+                                                            </button>
+                                                        )}
+                                                    </div>
+                                                ) : (
+                                                    // Multiple Choice Options
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                                                        {q.options.map((opt) => (
+                                                            <label 
+                                                                key={opt} 
+                                                                className={`flex items-center p-3 rounded-lg cursor-pointer border transition-all ${
+                                                                    userAnswers[q.id] === opt 
+                                                                        ? 'bg-blue-50 border-blue-500 ring-1 ring-blue-500' 
+                                                                        : 'border-gray-200 hover:bg-gray-50'
+                                                                } ${isChecked && opt === q.answer ? '!bg-green-100 !border-green-500 !ring-1 !ring-green-500' : ''}
+                                                                  ${isChecked && userAnswers[q.id] === opt && opt !== q.answer ? '!bg-red-100 !border-red-500' : ''}
+                                                                  ${isChecked ? 'cursor-default' : ''}`}
+                                                            >
+                                                                <input
+                                                                    type="radio"
+                                                                    name={`question-${q.id}`}
+                                                                    value={opt}
+                                                                    checked={userAnswers[q.id] === opt}
+                                                                    onChange={() => !isChecked && handleInputChange(q.id, opt)}
+                                                                    className="w-4 h-4 text-blue-600 mr-3"
+                                                                    disabled={isChecked}
+                                                                />
+                                                                <span className="text-gray-700 font-medium">{opt}</span>
+                                                            </label>
+                                                        ))}
+                                                        
+                                                        {/* Check Button for MC (only shows if option selected but not checked yet) */}
+                                                        {!isChecked && userAnswers[q.id] && (
+                                                            <div className="col-span-1 sm:col-span-2 mt-2">
+                                                                <button 
+                                                                    onClick={() => handleCheckAnswer(q.id)}
+                                                                    className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-bold transition-colors shadow-sm"
+                                                                >
+                                                                    確認答案
+                                                                </button>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Explanation Area (Shows immediately after check) */}
+                                            {isChecked && (
+                                                <div className="mt-4 pt-4 border-t border-gray-200 fade-in">
+                                                    <div className={`text-base font-bold mb-3 flex items-center ${correct ? 'text-green-600' : 'text-red-500'}`}>
+                                                        {correct ? (
+                                                            <><span className="mr-2 text-xl">✓</span> 答對了！</>
+                                                        ) : (
+                                                            <><span className="mr-2 text-xl">✕</span> 答錯了。正確答案：<span className="ml-1 text-lg underline">{q.answer}</span></>
+                                                        )}
+                                                    </div>
+                                                    <div className="bg-gray-50 p-4 rounded-lg text-gray-700 space-y-2 border-l-4 border-blue-400">
+                                                        <p><span className="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">翻譯</span> {q.translation}</p>
+                                                        <p><span className="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">解析</span> {q.explanation}</p>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {/* Reset Button */}
+                    <div className="flex justify-center mt-12 mb-8">
+                        <button
+                            onClick={resetQuiz}
+                            className="text-gray-500 hover:text-gray-700 underline decoration-dotted underline-offset-4 text-sm"
+                        >
+                            清除所有進度並重來
+                        </button>
+                    </div>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
